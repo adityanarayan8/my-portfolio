@@ -32,6 +32,10 @@ export const metadata: Metadata = {
   description,
   authors: [{ name: person.name }],
   alternates: { canonical: "/" },
+  icons: {
+    icon: "/icon.svg",
+    apple: "/apple-icon.png",
+  },
   openGraph: {
     title,
     description,
@@ -39,8 +43,21 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: person.name,
     locale: "en_US",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: `${person.name}, ${person.positioning}`,
+      },
+    ],
   },
-  twitter: { card: "summary_large_image", title, description },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/opengraph-image.png"],
+  },
 };
 
 const personSchema = {
